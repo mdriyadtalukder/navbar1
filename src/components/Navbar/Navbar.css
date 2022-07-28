@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: deepskyblue;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li {
+    display: inline;
+    margin-left: 35px;
+}
+
+.logo a {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+li a:hover {
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#nav-check {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-toggler {
+    height: 35px;
+    width: 45px;
+    background-color: white;
+    border-radius: 5px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.nav-toggler span {
+    height: 4px;
+    width: 35px;
+    background-color: deepskyblue;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.nav-toggler span::before,
+.nav-toggler span::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: deepskyblue;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.nav-toggler span::before {
+    top: 6px;
+}
+
+.nav-toggler span::after {
+    top: -5.6px;
+}
+
+@media(max-width:991px) {
+    .nav-toggler {
+        display: flex;
+    }
+
+    .nav {
+        position: absolute;
+        left: 0;  
+                              /* top dile left:0; dite hbe r left ba right dile top:100%; dite hbe; */
+        top: -300%;
+        /* left: -100%; */
+        /* right: -100%; */
+        width: 100%;
+        display: flex;
+        background-color: deepskyblue;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 24px;
+        transition: all 0.3s ease;
+    }
+
+    li a {
+        display: block;
+        margin-left: 20px;
+        text-align: center;
+        /* text-align: end;
+        margin-right: 18px; */
+    }
+
+    .header #nav-check:checked~.nav {
+        opacity: 1;
+        display: block;
+        /* left: 0%; */
+        /* right: 0%; */
+        /* top theke ashbe dite chaile ekhne top:100% dite hbe..and right ba left theke ashbe dite chaile left ba right 0% dite hbe ekhne. */
+        top: 100%;
+    }
+
+    .header #nav-check:checked~.nav-toggler span {
+        background-color: transparent;
+    }
+
+    .header #nav-check:checked~.nav-toggler span::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    .header #nav-check:checked~.nav-toggler span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+
+}
